@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+
+
+
+@font-face {
+    font-family: 'custom';
+    src: url(font/Dantina.ttf) format('truetype');
+
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libre Caslon Display", serif;
+    
+}
+
+
+:root {
+    --brand-color: #f7d108;
+    --yellow-gold:#d9a926;
+    
+    --lightgold-color:#fdf9f2;
+    
+    --lpurple:#fdc0ff;
+    --white-color: white;
+    --fade-out:rgb(85, 85, 85);
+    --dark-main-color:#160e0d;
+    --font-1:"Libre Caslon Display", serif;
+    --font-2: "Roboto", sans-serif;
+    --font-3: "Libre Caslon Text", serif;
+    
+}
+
+
+/*-------------SCROLL TO THE TOP---------------*/
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top i {
+    color: #333;
+    font-size: 18px;
+}
+
+.scroll-top:hover i {
+    color: var(--yellow-gold);
+}
+
+.scroll-progress {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+}
+
+.scroll-progress svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.scroll-progress circle {
+    fill: none;
+    stroke: var(--yellow-gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 125.6;
+    stroke-dashoffset: 125.6;
+    transition: stroke-dashoffset 0.1s ease;
+}
+
+
+/*-----------------HEADER---------------*/
+
+.head1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease, box-shadow 0.3s ease;
+    height: 80px;
+    overflow: hidden;
+}
+
+.head1.expanded {
+    height: 440px;
+    box-shadow: none;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 25px;
+    height: 80px;
+    background: white;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+/* header.expanded .header-main {
+    border-bottom: 1px solid #eee;
+} */
+
+.logo img {
+    height: 40px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-icon.active {
+    transform: rotate(180deg);
+}
+
+.head1 nav {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0 25px;
+}
+
+.head1.expanded nav {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.head1 nav ul {
+    list-style: none;
+    text-align: left;
+}
+
+.head1 nav ul li {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.head1.expanded nav ul li {
+    transform: translateY(0);
+    opacity: 1;
+    margin: 30px 0;
+}
+
+/* Staggered animation for list items */
+.head1.expanded nav ul li:nth-child(1) { transition-delay: 0.1s; }
+.head1.expanded nav ul li:nth-child(2) { transition-delay: 0.15s; }
+.head1.expanded nav ul li:nth-child(3) { transition-delay: 0.2s; }
+.head1.expanded nav ul li:nth-child(4) { transition-delay: 0.25s; }
+.head1.expanded nav ul li:nth-child(5) { transition-delay: 0.3s; }
+
+.head1 nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: block;
+    font-family: var(--font-2);
+}
+
+.head1 nav ul li a:hover {
+    color: var(--yellow-gold);
+}
+
+.client-btn-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 0px;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.35s;
+}
+
+.head1.expanded .client-btn-wrapper {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.client-btn {
+    background: var(--yellow-gold);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-family: var(--font-2);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.client-btn:hover {
+    background: var(--brand-color);
+}
+
+
+.head2 {
+    display: none;
+}
+
+
+/* Hero Section */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+  }
+  
+  #hero video {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+  }
+  
+  /* Black Overlay on Video */
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.351); /* Adjust opacity as needed */
+    z-index: 1;
+  }
+  
+  /* Thumbnail Overlay */
+  .thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.468); /* Optional overlay for better contrast */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .thumbnail-overlay img {
+    min-width: 110%;
+    position: relative;
+  }
+
+  .hrtext {
+    position: absolute;
+    z-index: 200;
+    top: 50%; /* Move to the vertical center */
+    left: 50%; /* Move to the horizontal center */
+    transform: translate(-50%, -50%); /* Offset by 50% of its width and height for perfect centering */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center; /* Center text inside */
+    color: white; /* Optional: Ensure text is visible over the overlay */
+}
+
+.herotext h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 300; 
+}
+
+
+.hero-button button {
+    position: relative;
+    display: inline-block;
+    padding: 20px 50px;
+    
+    font-family: var(--font-2);
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--dark-main-color); 
+    background-color: var(--yellow-gold); 
+    border: 2px solid var(--yellow-gold); 
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-button button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--dark-main-color); 
+    z-index: 0;
+    transition: width 0.4s ease-in-out;
+}
+
+.hero-button button:hover::before {
+    width: 100%;
+}
+
+.hero-button button:hover {
+    color: white;
+    background-color: transparent; 
+    
+}
+
+.hero-button span {
+    position: relative;
+    z-index: 2; 
+    font-family: var(--font-2);
+    letter-spacing: 2px;
+}
+
+
+/*------------------INTRO-----------------*/
+
+
+#intro {
+    margin-top: -40px;
+    overflow: hidden;
+
+}
+
+.intro1 {
+    padding-left: 25px;
+    padding-right: 25px;
+
+}
+
+.intro-text h2 {
+    font-weight: 500;
+    font-size: 1.7em;
+    margin-bottom: 60px;
+}
+
+.intro-text p {
+    font-family: var(--font-2);
+    font-weight: 300;
+    line-height: 25px;
+    color: var(--fade-out);
+    margin-bottom: 20px;
+}
+
+
+.intro-button button {
+    position: relative;
+    display: inline-block;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+    font-family: var(--font-2);
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--dark-main-color); 
+    background-color: var(--yellow-gold); 
+    border: 2px solid var(--yellow-gold); 
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.intro-button button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--dark-main-color); 
+    z-index: 0;
+    transition: width 0.4s ease-in-out;
+}
+
+.intro-button button:hover::before {
+    width: 100%;
+}
+
+.intro-button button:hover {
+    color: white;
+    background-color: transparent; 
+    border: 1px solid var(--dark-main-color);
+    
+}
+
+.intro-button span {
+    position: relative;
+    z-index: 2; 
+    font-family: var(--font-2);
+    letter-spacing: 2px;
+}
+
+.intro-image img {
+    overflow: hidden;
+    width: 100%;
+}
+
