@@ -152,6 +152,35 @@
         position: relative;
         z-index: 2; 
     }
+
+
+
+
+
+
+
+
+    /*----------------CONTENT CONTINUATION----------*/
+
+
+
+    .cont-image {
+        display: flex;
+        height: 400px;
+        gap: 1rem;
+    }
+
+    .cont-image img {
+        position: relative;
+        width: calc(33.333% - 0.667rem);
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Hide arrows in desktop view since we're showing all images */
+    .arrow {
+        display: none;
+    }
     
     
 }

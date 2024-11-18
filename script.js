@@ -75,3 +75,105 @@ const scrollTop = document.querySelector('.scroll-top');
         }
     });
   });
+
+
+
+  /// CONTENT CONTINUATION
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.cont-image img');
+    const leftArrow = document.querySelector('.arrow-left');
+    const rightArrow = document.querySelector('.arrow-right');
+    let currentIndex = 0;
+    let autoSlideInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Function to show specific image
+    function showImage(index) {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+    }
+
+    // Function to go to next image
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Function to go to previous image
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Auto slide functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextImage, 6000);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // Event listeners for arrows
+    leftArrow.addEventListener('click', () => {
+        prevImage();
+        resetAutoSlide();
+    });
+
+    rightArrow.addEventListener('click', () => {
+        nextImage();
+        resetAutoSlide();
+    });
+
+    // Touch events for swipe functionality
+    const imageContainer = document.querySelector('.cont-image');
+
+    imageContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    imageContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+                prevImage();
+            } else {
+                nextImage();
+            }
+            resetAutoSlide();
+        }
+    }
+
+    // Start auto slide on page load
+    startAutoSlide();
+
+    // Check for media query
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    
+    function handleMediaQueryChange(e) {
+        if (e.matches) {
+            // If screen is wider than 1024px, stop the slideshow
+            clearInterval(autoSlideInterval);
+            images.forEach(img => img.classList.remove('active'));
+        } else {
+            // If screen is narrower than 1024px, restart the slideshow
+            images.forEach(img => img.classList.remove('active'));
+            images[currentIndex].classList.add('active');
+            startAutoSlide();
+        }
+    }
+
+    mediaQuery.addListener(handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuery);
+});

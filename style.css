@@ -259,7 +259,7 @@ a {
     left: 0;
     width: 100%;
     height: 80%;
-    background-color: rgba(0, 0, 0, 0.351); /* Adjust opacity as needed */
+    background-color: rgba(0, 0, 0, 0.351); 
     z-index: 1;
   }
   
@@ -307,7 +307,7 @@ a {
 .hero-button button {
     position: relative;
     display: inline-block;
-    padding: 20px 50px;
+    padding: 15px 45px;
     
     font-family: var(--font-2);
     font-size: 1em;
@@ -377,13 +377,14 @@ a {
     line-height: 25px;
     color: var(--fade-out);
     margin-bottom: 20px;
+    font-size: 1em;
 }
 
 
 .intro-button button {
     position: relative;
     display: inline-block;
-    padding: 20px 50px;
+    padding: 15px 50px;
     margin-bottom: 30px;
     font-family: var(--font-2);
     font-size: 1em;
@@ -429,5 +430,262 @@ a {
 .intro-image img {
     overflow: hidden;
     width: 100%;
+}
+
+
+
+/*---------------CONTENT CONTINUATION--------------*/
+
+
+#cont {
+    background-color: #f6f1f0;
+    padding: 25px 25px;
+    margin-top: 50px;
+}
+
+.cont1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cont-text {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.cont-text h2 {
+    font-size: 1.8em;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+.cont-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--fade-out);
+    font-family: var(--font-2);
+    font-weight: 300;
+}
+
+.cont-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 2rem; /* Added margin to create space between images and arrows */
+}
+
+.cont-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: scale(1.1);
+}
+
+.cont-image img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.arrow-left, .arrow-right {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* .ti-angle-left, .ti-angle-right {
+    border: solid #333;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+} */
+
+/* .ti-angle-left {
+    transform: rotate(135deg);
+} */
+
+/* .ti-angle-right {
+    transform: rotate(-45deg);
+} */
+
+
+
+/*---------------BOOK CONSULTATION----------*/
+
+
+.consultation-section {
+    background-image: url('image/8.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    object-fit: cover;
+    padding: 50px 20px; 
+    color: white; 
+    text-align: center; 
+    position: relative; 
+}
+
+.consultation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text readability */
+    z-index: 1; /* Ensures the overlay is below the content */
+}
+
+.consultation-content {
+    position: relative; /* Ensures the content stays above the overlay */
+    z-index: 2; /* Places the content above the overlay */
+    max-width: 800px; /* Limits the width of the content */
+    margin: 0 auto; /* Centers the content horizontally */
+}
+
+.stars {
+    margin-bottom: 20px; /* Adds space below the stars */
+    font-size: 1.5em; /* Adjusts the size of the stars */
+    color: gold; /* Sets the star color to gold */
+}
+
+.consultation-button {
+    display: inline-block;
+    margin-top: 20px; 
+    padding: 15px 30px; 
+    background-color: gold; 
+    color: black;
+    text-decoration: none; 
+    font-size: 1.2em; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.consultation-button:hover {
+    background-color: black;
+    color: white; 
+}
+
+
+.consultation-content h2 {
+    font-weight: 500;
+}
+
+
+/*--------------BOOK MOCKUP-------------*/
+
+
+#mockup {
+    overflow: hidden;
+    margin-top: 80px;
+
+}
+
+.mockup-mom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.mockup-image img {
+    width: 100%;
+}
+
+
+.mockup-text h2 {
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.mockup-text span {
+    color: var(--yellow-gold);
+    font-family: var(--font-2);
+}
+
+
+.mockup-text p {
+    font-family: var(--font-2);
+    color: var(--fade-out);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+
+.mockup-button button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 50px;
+    margin-bottom: 30px;
+    font-family: var(--font-2);
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--dark-main-color); 
+    background-color: var(--yellow-gold); 
+    border: 2px solid var(--yellow-gold); 
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.mockup-button button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--dark-main-color); 
+    z-index: 0;
+    transition: width 0.4s ease-in-out;
+}
+
+.mockup-button button:hover::before {
+    width: 100%;
+}
+
+.mockup-button button:hover {
+    color: white;
+    background-color: transparent; 
+    border: 1px solid var(--dark-main-color);
+    
+}
+
+.mockup-button span {
+    position: relative;
+    z-index: 2; 
+    font-family: var(--font-2);
+    letter-spacing: 2px;
 }
 
