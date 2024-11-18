@@ -177,3 +177,71 @@ const scrollTop = document.querySelector('.scroll-top');
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
 });
+
+
+
+
+/////TESTIMONIAL
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentIndex = 0;
+    let interval;
+
+    const showTestimonial = (index) => {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.remove('active', 'hidden');
+            if (i === index) {
+                testimonial.classList.add('active');
+            } else if (i < index) {
+                testimonial.classList.add('hidden');
+            }
+        });
+    };
+
+    const startRotation = () => {
+        interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            showTestimonial(currentIndex);
+        }, 8000);
+    };
+
+    const stopRotation = () => clearInterval(interval);
+
+    const swipeHandler = (e) => {
+        if (e.deltaX > 0) {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;  // Swipe Right
+        } else if (e.deltaX < 0) {
+            currentIndex = (currentIndex + 1) % testimonials.length;  // Swipe Left
+        }
+        showTestimonial(currentIndex);
+    };
+
+    document.querySelector('.testimonial-container').addEventListener('mouseenter', stopRotation);
+    document.querySelector('.testimonial-container').addEventListener('mouseleave', startRotation);
+
+    showTestimonial(currentIndex);
+    startRotation();
+
+    // Enable swipe functionality
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    const handleTouchStart = (e) => {
+        touchstartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e) => {
+        touchendX = e.changedTouches[0].screenX;
+        if (touchstartX > touchendX) {
+            swipeHandler({ deltaX: -1 }); // swipe left
+        } else if (touchstartX < touchendX) {
+            swipeHandler({ deltaX: 1 }); // swipe right
+        }
+    };
+
+    document.querySelector('.testimonial-container').addEventListener('touchstart', handleTouchStart);
+    document.querySelector('.testimonial-container').addEventListener('touchend', handleTouchEnd);
+});
+
