@@ -36,7 +36,8 @@
         font-weight: 500;
         display: block;
         width: 100%;
-        position: relative;
+        position: fixed;
+        z-index: 1000;
         /* height: 100vh; */
     }
 
@@ -155,6 +156,34 @@
 
 
 
+    /*---------------HERO IMAGE-----------*/
+
+    #hero {
+        position: relative;
+        width: 100%;
+        height: 150vh;
+        overflow: hidden;
+    }
+
+
+    /*-----------------INTRO----------------*/
+
+
+    .intro1 {
+        display: flex;
+        gap: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .intro-text h2 {
+        padding-right: 30%;
+        font-size: 2em;
+    }
+
+
+
+
 
 
 
@@ -177,10 +206,79 @@
         transform: none;
     }
 
+    .cont-text h2 {
+        font-size: 2em;
+    }
+
     /* Hide arrows in desktop view since we're showing all images */
     .arrow {
         display: none;
     }
+
+
+    /*------------------MOCKUP---------------*/
+
+    .mockup-mom {
+        display: flex;
+        flex-direction: row-reverse;
+        padding-left: 50px;
+        padding-right: 50px;
+        
+        align-items: center;
+    }
+
+    .mck {
+        width: 100%;
+        text-align: left;
+        position: relative;
+        left: 20%;
+    }
+
+
+    .mockup-image img {
+        width: 50%;
+        position: relative;
+        left: 10%;
+    }
+    
+
+
+    /*-----------------GALLERY---------*/
+    .porty1 {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .porty-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .porty-content h2 {
+        width: 100%;
+        font-size: 2em;
+    }
+
+    .porty-pic {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+
+    /*-------------FEATURED-----------*/
+
+
+    .infy4 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+
+
+
     
     
 }

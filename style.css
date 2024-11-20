@@ -970,6 +970,8 @@ a {
     .footer-container {
       max-width: 1200px;
       margin: 0 auto;
+      /* align-items: center; */
+      padding-left: 100px;
     }
   
     #footer {
