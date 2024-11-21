@@ -19,6 +19,24 @@ const header = document.querySelector('header');
         });
 
 
+////////////ACTIVE LINK
+
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop(); // Get the current page name
+    const navLinks = document.querySelectorAll(".nav-menu ul li a");
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute("href").split("/").pop(); // Get the link's target page name
+        if (linkPath === currentPath) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+});
+
+
+
 ///////SCROLL TO THE TOP
 
 const scrollTop = document.querySelector('.scroll-top');
