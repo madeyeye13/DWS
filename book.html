@@ -182,7 +182,7 @@
     <div class="contact-mother">
 
 
-        <form id="contact-form" action="https://formspree.io/f/xdkooedn" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/xqaklgwq" method="POST">
             <label for="current-location">Your Current Location</label>
             <input type="text" id="current-location" name="current-location" placeholder="Where are you located currently?">
         
@@ -249,7 +249,7 @@
     
                     <ul>
                       
-                        <li>EXQUISITELUXURYEVENTS@GMAIL.COM</li>
+                        <li>dwseventsng@gmail.com</li>
                     </ul>
     
     
@@ -261,7 +261,7 @@
     
                     <ul>
     
-                        <li>58b USUMA STREET, MAITAMA, ABUJA</li>
+                        <li>Ayodele Oke-Owo Rd, Gbagada, Lagos</li>
                         
                     </ul>
     
@@ -275,7 +275,7 @@
     
                     <ul>
                         
-                        <li>081 6763 3866</li>
+                        <li>+234 703 021 8667</li>
                         
                     </ul>
     
@@ -420,11 +420,12 @@
     
 
     .contak h2 {
-        font-size: 24px;
+        font-size: 1.5em;
         color: #333;
         text-align: center;
         margin-bottom: 20px;
         text-align: left;
+        font-weight: 500;
     }
 
     .contak p {
@@ -490,13 +491,14 @@
     }
 
     form button {
-        background-color: var(--gold-color);
+        background-color: var(--yellow-gold);
         color: white;
         padding: 10px 15px;
         font-size: 16px;
         border: none;
-        border-radius: 5px;
+        border-radius: 0px;
         cursor: pointer;
+        font-family: var(--font-2);
         transition: background-color 0.3s ease;
     }
 
@@ -565,34 +567,44 @@
             align-content: center;
         }
 
-         /*------------CONTACT AND FORM-------------*/
+        .contact-mother {
 
-         .contak {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-left: 70px;
-            padding-right: 70px;
-            
-        }
-
-        .contak p {
-            text-align: center;
-
-        }
+display: flex;
+gap: 100px;
 
 
-       .contact-mother {
-        display: flex;
-        gap: 20px;
-        padding-left: 70px;
-        padding-right: 70px;
-       }
+}
 
-       .form-container {
-        width: 100%;
-       }
+form {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.contact-section {
+max-width: 1000px;
+margin: 50px auto;
+padding: 25px;
+background-color: white;
+border-radius: 8px;
+
+
+}
+
+
+.contak p {
+text-align: center;
+color: #666;
+font-size: 16px;
+margin-bottom: 60px;
+text-align: center;
+
+
+}
+
+.contak h2 {
+text-align: center;
+}
 
 
 
@@ -637,187 +649,40 @@
 
 
     <script>
-        /////////////CONSULTATION
+        /////////////BOOKING FORM
 
- // The JavaScript remains the same as in the previous version
- const currentDate = new Date();
-        let selectedDate = null;
-        let selectedTime = null;
+        document.getElementById("contact-form").addEventListener("submit", async function(event) {
+            event.preventDefault();  // Prevent default form submission behavior
 
-        const monthSelect = document.getElementById('month');
-        const yearSelect = document.getElementById('year');
-        const calendarDiv = document.getElementById('calendar');
-        const timeSlotsDiv = document.getElementById('timeSlots');
-        const selectedDateTimeP = document.getElementById('selectedDateTime');
-        const continueBtn = document.getElementById('continueBtn');
-        const step1Div = document.getElementById('step1');
-        const step2Div = document.getElementById('step2');
-        const userInfoForm = document.getElementById('userInfoForm');
-        const bookNowBtn = document.getElementById('bookNowBtn');
-        const successMessageDiv = document.getElementById('successMessage');
-        const consultationDateInput = document.getElementById('consultationDate');
-        const consultationTimeInput = document.getElementById('consultationTime');
+            const form = event.target;
+            const formData = new FormData(form);
 
-        // Populate month select with remaining months of 2024
-        const months = ['October', 'November', 'December'];
-        months.forEach((month, index) => {
-            const option = document.createElement('option');
-            option.value = index + 9; // October is month 9
-            option.textContent = month;
-            if (index + 9 === currentDate.getMonth()) {
-                option.selected = true;
-            }
-            monthSelect.appendChild(option);
-        });
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-        // Time slots in 12-hour format
-        const timeSlots = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'];
-
-        function renderCalendar() {
-            calendarDiv.innerHTML = '';
-            const year = parseInt(yearSelect.value);
-            const month = parseInt(monthSelect.value);
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-            // Add day names
-            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            dayNames.forEach(day => {
-                const dayNameDiv = document.createElement('div');
-                dayNameDiv.textContent = day;
-                dayNameDiv.classList.add('day-name');
-                calendarDiv.appendChild(dayNameDiv);
-            });
-
-            for (let i = 0; i < firstDay; i++) {
-                calendarDiv.appendChild(document.createElement('div'));
-            }
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const button = document.createElement('button');
-                button.textContent = day;
-                const date = new Date(year, month, day);
-                if (date < currentDate || date.getDay() === 0) {
-                    button.disabled = true;
-                } else {
-                    button.addEventListener('click', () => selectDate(date));
-                }
-                if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
-                    button.classList.add('selected');
-                }
-                calendarDiv.appendChild(button);
-            }
-        }
-
-        function selectDate(date) {
-            selectedDate = date;
-            selectedTime = null;
-            updateSelectedDateTime();
-            renderCalendar();
-            renderTimeSlots();
-        }
-
-        function renderTimeSlots() {
-            timeSlotsDiv.innerHTML = '';
-            timeSlotsDiv.style.display = 'grid';
-            timeSlots.forEach(time => {
-                const button = document.createElement('button');
-                button.textContent = time;
-                button.addEventListener('click', () => selectTime(time));
-                if (selectedTime === time) {
-                    button.classList.add('selected');
-                }
-                timeSlotsDiv.appendChild(button);
-            });
-        }
-
-        function selectTime(time) {
-            selectedTime = time;
-            updateSelectedDateTime();
-            renderTimeSlots();
-        }
-
-        function updateSelectedDateTime() {
-            if (selectedDate && selectedTime) {
-                selectedDateTimeP.textContent = `Selected: ${selectedDate.toLocaleDateString()} at ${selectedTime}`;
-                continueBtn.disabled = false;
-                continueBtn.classList.add('gold');
-                consultationDateInput.value = selectedDate.toLocaleDateString();
-                consultationTimeInput.value = selectedTime;
-            } else {
-                selectedDateTimeP.textContent = '';
-                continueBtn.disabled = true;
-                continueBtn.classList.remove('gold');
-                consultationDateInput.value = '';
-                consultationTimeInput.value = '';
-            }
-        }
-
-        function validateForm() {
-            const requiredFields = userInfoForm.querySelectorAll('[required]');
-            let isValid = true;
-            requiredFields.forEach(field => {
-                if (!field.value) {
-                    isValid = false;
-                }
-            });
-            bookNowBtn.disabled = !isValid;
-            if (isValid) {
-                bookNowBtn.classList.add('gold');
-            } else {
-                bookNowBtn.classList.remove('gold');
-            }
-        }
-
-        monthSelect.addEventListener('change', renderCalendar);
-        yearSelect.addEventListener('change', renderCalendar);
-        continueBtn.addEventListener('click', () => {
-            step1Div.style.display = 'none';
-            step2Div.style.display = 'block';
-        });
-
-        userInfoForm.addEventListener('input', validateForm);
-
-        userInfoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(userInfoForm);
-
-            fetch('https://formspree.io/f/mbljkppl', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    const name = formData.get('name');
-                    successMessageDiv.textContent = `We received your form, ${name}, and we would reach out to you. Thanks for choosing DWS Events!`;
-                    successMessageDiv.style.display = 'block';
-                    step2Div.style.display = 'none';
+                if (response.ok) {
+                    const successMessage = document.getElementById("success-message");
+                    successMessage.style.display = "block";
 
                     setTimeout(() => {
-                        successMessageDiv.style.display = 'none';
-                        step1Div.style.display = 'block';
-                        userInfoForm.reset();
-                        selectedDate = null;
-                        selectedTime = null;
-                        updateSelectedDateTime();
-                        renderCalendar();
-                        timeSlotsDiv.style.display = 'none';
-                    }, 6000);
+                        successMessage.style.display = "none";
+                    }, 5000);
+
+                    form.reset();
                 } else {
-                    alert('There was an error submitting the form. Please try again.');
+                    console.error("Form submission failed.");
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error submitting the form. Please try again.');
-            });
+            } catch (error) {
+                console.error("Error submitting the form:", error);
+            }
         });
 
-        renderCalendar();
       </script>
       
       
