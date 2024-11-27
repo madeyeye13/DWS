@@ -216,6 +216,25 @@
     }
 
 
+
+    /* ======STYLE FOR SERVICES RENDERED======= */
+    
+    .svc0 {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .svc1 {
+        display: flex;
+        flex-direction: row;
+        gap: 200px;
+        
+    }
+
+    .svc2 {
+        width: 100%;
+    }
+
+
     /*------------------MOCKUP---------------*/
 
     .mockup-mom {
@@ -272,7 +291,7 @@
 
     .infy4 {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 
 
