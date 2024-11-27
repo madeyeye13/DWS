@@ -647,6 +647,7 @@ a {
     color: var(--fade-out);
     font-family: var(--font-2);
     font-weight: 400;
+    font-size: 0.9em;
 }
 
 
