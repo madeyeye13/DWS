@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWS EVENTS</title>
+    <meta name="description" content="...IGNITING THE SPARK">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="https://themify.me/wp-content/themes/themifyme/css/themify-icons.css">
+
+    <!--==========FavIcon========-->
+    <link rel="icon" type="image/x-icon" href="/image/dwslogo.png">
+
+    <!--============Google Fonts================-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+    <!--====================Font Awesome======================-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
+     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous" 
+     referrerpolicy="no-referrer" />
+
+     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM63cbz6SMjf2PgxGRc5mWut8PjCoanOz3Di0A4" crossorigin="anonymous">
+
+    <!--=====Cascading Style Sheet====-->
+
+     <link rel="stylesheet" href="style.css">
+
+     <link rel="stylesheet" href="css/themify-icons.css">
+     <link rel="stylesheet" href="css/plugins.css" />
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     
+
+
+     <!--=====Media Query====-->
+
+     <link rel="stylesheet" href="mediaquery.css">
+
+    <!--============ Boxicons ===============-->
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+    <!------------AOS--------------->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-------------------YOUTUBE POPUP---------------------------->
+
+
+  <link rel="stylesheet" href="YouTubePopUp.css">
+
+
+
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body, html {
+        height: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+        min-height: 100vh;
+        background-color: black;
+        background-image: url('/image/26.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 20px;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .profile {
+        z-index: 10;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .company-name {
+        font-family: 'Libre Caslon Display', serif;
+        color: white;
+        font-size: 2em;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .tagline {
+        color: #e0e0e0;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 30px;
+        max-width: 400px;
+    }
+
+    .links {
+        width: 100%;
+        max-width: 400px;
+        z-index: 10;
+    }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        text-decoration: none;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: transparent;
+        transition: all 0.4s ease;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            120deg, 
+            transparent, 
+            rgba(255,255,255,0.2), 
+            transparent
+        );
+        transition: all 0.4s ease;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.5);
+    }
+
+    .btn i {
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .btn:hover i {
+        transform: rotate(360deg);
+    }
+</style>
+
+
+
+
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="overlay"></div>
+        
+        <div class="profile">
+            <img src="/image/17.jpg" alt="DWS Events" class="profile-image">
+            
+            <h1 class="company-name">DWS Events</h1>
+            
+            <p class="tagline">Planner that sticks closer than a sister</p>
+        </div>
+
+        <div class="links">
+            <a href="/index.html" class="btn">
+                <i class="fas fa-home"></i> View Our Website
+            </a>
+            <a href="/book.html" class="btn">
+                <i class="fas fa-calendar"></i> Book Appointment
+            </a>
+            <a href="https://selar.co/ut49" class="btn">
+                <i class="fas fa-book"></i> Get PLAN IT YOURSELF book
+            </a>
+            <a href="https://selar.co/m/AdesuwaO" class="btn">
+                <i class="fas fa-shopping-cart"></i> Shop Our Products
+            </a>
+            <a href="https://wa.link/2q0pze" class="btn">
+                <i class="fab fa-whatsapp"></i> Whatsapp
+            </a>
+            <a href="https://www.youtube.com/@AdesuwaO" class="btn">
+                <i class="fab fa-youtube"></i> Youtube
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Optional advanced hover effects
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.letterSpacing = '2px';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.style.letterSpacing = '1px';
+            });
+        });
+    </script>
+
+    
+      
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
